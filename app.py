@@ -61,7 +61,7 @@ pagina_html = """
 <body>
     <div class="card">
         <h1>✨ Bienvenido a mi página Flask ✨</h1>
-        <p>Esta página está corriendo en <strong>Python Flask</strong> en el puerto 8080.</p>
+        <p>Esta página está corriendo en <strong>Python Flask</strong> en el puerto 80.</p>
         <button onclick="mostrarMensaje()">Haz clic aquí</button>
         <div id="mensaje" class="mensaje" style="opacity:0;">¡Gracias por visitar mi web! 💚</div>
     </div>
@@ -81,4 +81,4 @@ def home():
     return render_template_string(pagina_html)
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8080, debug=True)
+    app.run(host="0.0.0.0", port=80, debug=True)

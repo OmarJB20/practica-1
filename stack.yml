@@ -8,7 +8,7 @@ services:
       labels: 
         - "traefik.enable=true"
         - "traefik.http.routers.santillanapp.entrypoints=http"
-        - "traefik.http.routers.santillanapp.rule=Host(`santillanapp.byronrm.com`)"
+        - "traefik.http.routers.santillanapp.rule=Host(`  `)"
         - "traefik.http.middlewares.santillanapp-https-redirect.redirectscheme.scheme=https"
         - "traefik.http.routers.santillanapp.middlewares=santillanapp-https-redirect"
         - "traefik.http.routers.santillanapp-secure.entrypoints=https"
@@ -16,7 +16,7 @@ services:
         - "traefik.http.routers.santillanapp-secure.tls=true"
         - "traefik.http.routers.santillanapp-secure.tls.certresolver=http"
         - "traefik.http.routers.santillanapp-secure.service=santillanapp"
-        - "traefik.http.services.santillanapp.loadbalancer.server.port=8080"
+        - "traefik.http.services.santillanapp.loadbalancer.server.port=80"
         - "traefik.docker.network=traefik-public"
     networks:
       - traefik-public

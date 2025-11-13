@@ -11,7 +11,7 @@ COPY . /app
 RUN pip install --no-cache-dir -r requirements.txt
 
 # EXPONDER EL PUERTO
-EXPOSE 8080
+EXPOSE 80
 
 # EJECUTAR LA APLICACION
 CMD ["python", "app.py"]
