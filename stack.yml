@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  santillanapp:
+    image: santillanimg:latest
+    deploy:
+      replicas: 1
+      labels: 
+        - "traefik.enable=true"
+        - "traefik.http.routers.santillanapp.entrypoints=http"
+        - "traefik.http.routers.santillanapp.rule=Host(`santillanapp.byronrm.com`)"
+        - "traefik.http.middlewares.santillanapp-https-redirect.redirectscheme.scheme=https"
+        - "traefik.http.routers.santillanapp.middlewares=santillanapp-https-redirect"
+        - "traefik.http.routers.santillanapp-secure.entrypoints=https"
+        - "traefik.http.routers.santillanapp-secure.rule=Host(`santillanapp.byronrm.com`)"
+        - "traefik.http.routers.santillanapp-secure.tls=true"
+        - "traefik.http.routers.santillanapp-secure.tls.certresolver=http"
+        - "traefik.http.routers.santillanapp-secure.service=santillanapp"
+        - "traefik.http.services.santillanapp.loadbalancer.server.port=8080"
+        - "traefik.docker.network=traefik-public"
+    networks:
+      - traefik-public
+
+networks:
+  traefik-public:
+    external: true
+
+   
+        
